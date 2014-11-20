@@ -31,11 +31,11 @@ describe('UndoRedo', function () {
         it('should undo single change on cell with validator', function () {
 
           var validatorSpy = jasmine.createSpy('validatorSpy').andCallFake(function (value, result) {
-            result(true);
+             result(true);
           });
 
           handsontable({
-            data: Handsontable.helper.createSpreadsheetData(2, 2),
+            data: createSpreadsheetData(2, 2),
             validator: validatorSpy
           });
           var HOT = getInstance();
@@ -66,7 +66,7 @@ describe('UndoRedo', function () {
 
         it('should undo creation of a single row', function () {
           var HOT = handsontable({
-            data: Handsontable.helper.createSpreadsheetData(2, 2)
+            data: createSpreadsheetData(2, 2)
           });
 
           expect(countRows()).toEqual(2);
@@ -82,7 +82,7 @@ describe('UndoRedo', function () {
 
         it('should undo creation of multiple rows', function () {
           var HOT = handsontable({
-            data: Handsontable.helper.createSpreadsheetData(2, 2)
+            data: createSpreadsheetData(2, 2)
           });
 
           expect(countRows()).toEqual(2);
@@ -98,7 +98,7 @@ describe('UndoRedo', function () {
 
         it('should undo creation of multiple rows with minSpareRows', function () {
           var HOT = handsontable({
-            data: Handsontable.helper.createSpreadsheetData(2, 1),
+            data: createSpreadsheetData(2, 1),
             minSpareRows: 2
           });
 
@@ -117,7 +117,7 @@ describe('UndoRedo', function () {
 
         it('should undo removal of single row', function () {
           var HOT = handsontable({
-            data: Handsontable.helper.createSpreadsheetData(3, 2)
+            data: createSpreadsheetData(3, 2)
           });
 
           expect(countRows()).toEqual(3);
@@ -149,7 +149,7 @@ describe('UndoRedo', function () {
 
         it('should undo removal of multiple rows', function () {
           var HOT = handsontable({
-            data: Handsontable.helper.createSpreadsheetData(4, 2)
+            data: createSpreadsheetData(4, 2)
           });
 
           expect(countRows()).toEqual(4);
@@ -185,7 +185,7 @@ describe('UndoRedo', function () {
 
         it('should undo creation of a single column (colHeaders: undefined)', function () {
           var HOT = handsontable({
-            data: Handsontable.helper.createSpreadsheetData(2, 3)
+            data: createSpreadsheetData(2, 3)
           });
 
           expect(countCols()).toEqual(3);
@@ -201,7 +201,7 @@ describe('UndoRedo', function () {
 
         it('should undo creation of a single column (colHeaders: true)', function () {
           var HOT = handsontable({
-            data: Handsontable.helper.createSpreadsheetData(2, 3),
+            data: createSpreadsheetData(2, 3),
             colHeaders: true
           });
 
@@ -221,7 +221,7 @@ describe('UndoRedo', function () {
 
         it('should undo creation of a single column (colHeaders: Array)', function () {
           var HOT = handsontable({
-            data: Handsontable.helper.createSpreadsheetData(2, 3),
+            data: createSpreadsheetData(2, 3),
             colHeaders: ['Header1', 'Header2', 'Header3']
           });
 
@@ -241,7 +241,7 @@ describe('UndoRedo', function () {
 
         it('should undo creation of multiple columns (colHeaders: undefined)', function () {
           var HOT = handsontable({
-            data: Handsontable.helper.createSpreadsheetData(2, 2)
+            data: createSpreadsheetData(2, 2)
           });
 
           expect(countCols()).toEqual(2);
@@ -257,7 +257,7 @@ describe('UndoRedo', function () {
 
         it('should undo creation of multiple columns (colHeaders: true)', function () {
           var HOT = handsontable({
-            data: Handsontable.helper.createSpreadsheetData(2, 2),
+            data: createSpreadsheetData(2, 2),
             colHeaders: true
           });
 
@@ -278,7 +278,7 @@ describe('UndoRedo', function () {
 
         it('should undo creation of multiple columns (colHeaders: Array)', function () {
           var HOT = handsontable({
-            data: Handsontable.helper.createSpreadsheetData(2, 2),
+            data: createSpreadsheetData(2, 2),
             colHeaders: ['Header1', 'Header2']
           });
 
@@ -299,7 +299,7 @@ describe('UndoRedo', function () {
 
         it('should undo creation of multiple columns with minSpareCols', function () {
           var HOT = handsontable({
-            data: Handsontable.helper.createSpreadsheetData(1, 1),
+            data: createSpreadsheetData(1, 1),
             minSpareCols: 2
           });
 
@@ -318,7 +318,7 @@ describe('UndoRedo', function () {
 
         it('should undo removal of single column (colHeaders: undefined)', function () {
           var HOT = handsontable({
-            data: Handsontable.helper.createSpreadsheetData(2, 3)
+            data: createSpreadsheetData(2, 3)
           });
 
           expect(countCols()).toEqual(3);
@@ -350,7 +350,7 @@ describe('UndoRedo', function () {
 
         it('should undo removal of single column (colHeaders: true)', function () {
           var HOT = handsontable({
-            data: Handsontable.helper.createSpreadsheetData(2, 2),
+            data: createSpreadsheetData(2, 2),
             colHeaders: true
           });
 
@@ -384,7 +384,7 @@ describe('UndoRedo', function () {
 
         it('should undo removal of single column (colHeaders: Array)', function () {
           var HOT = handsontable({
-            data: Handsontable.helper.createSpreadsheetData(2, 2),
+            data: createSpreadsheetData(2, 2),
             colHeaders: ['Header1', 'Header2']
           });
 
@@ -417,9 +417,10 @@ describe('UndoRedo', function () {
         });
 
 
+
         it('should undo removal of multiple columns (colHeaders: undefined)', function () {
           var HOT = handsontable({
-            data: Handsontable.helper.createSpreadsheetData(2, 4)
+            data: createSpreadsheetData(2, 4)
           });
 
           expect(countCols()).toEqual(4);
@@ -459,7 +460,7 @@ describe('UndoRedo', function () {
 
         it('should undo removal of multiple columns (colHeaders: true)', function () {
           var HOT = handsontable({
-            data: Handsontable.helper.createSpreadsheetData(2, 4),
+            data: createSpreadsheetData(2, 4),
             colHeaders: true
           });
 
@@ -503,7 +504,7 @@ describe('UndoRedo', function () {
 
         it('should undo removal of multiple columns (colHeaders: Array)', function () {
           var HOT = handsontable({
-            data: Handsontable.helper.createSpreadsheetData(2, 4),
+            data: createSpreadsheetData(2, 4),
             colHeaders: ['Header1', 'Header2', 'Header3', 'Header4']
           });
 
@@ -547,7 +548,7 @@ describe('UndoRedo', function () {
 
         it("should undo multiple changes", function () {
           handsontable({
-            data: Handsontable.helper.createSpreadsheetData(2, 2)
+            data: createSpreadsheetData(2, 2)
           });
           var HOT = getInstance();
 
@@ -600,7 +601,7 @@ describe('UndoRedo', function () {
           });
 
           handsontable({
-            data: Handsontable.helper.createSpreadsheetData(2, 2),
+            data: createSpreadsheetData(2, 2),
             validator: validatorSpy
           });
           var HOT = getInstance();
@@ -626,7 +627,7 @@ describe('UndoRedo', function () {
 
           waitsFor(function () {
             return validatorSpy.calls.length;
-          }, 'validatorSpy call after first undo', 1000);
+          },'validatorSpy call after first undo', 1000);
 
           runs(function () {
             expect(getDataAtCell(0, 0)).toBe('X1');
@@ -641,7 +642,7 @@ describe('UndoRedo', function () {
 
           waitsFor(function () {
             return validatorSpy.calls.length;
-          }, 'validatorSpy call after second undo', 1000);
+          },'validatorSpy call after second undo', 1000);
 
           runs(function () {
             expect(getDataAtCell(0, 0)).toBe('X1');
@@ -655,7 +656,7 @@ describe('UndoRedo', function () {
 
           waitsFor(function () {
             return validatorSpy.calls.length;
-          }, 'validatorSpy call after third undo', 1000);
+          },'validatorSpy call after third undo', 1000);
 
           runs(function () {
             expect(getDataAtCell(0, 0)).toBe('X1');
@@ -669,7 +670,7 @@ describe('UndoRedo', function () {
 
           waitsFor(function () {
             return validatorSpy.calls.length;
-          }, 'validatorSpy call after fourth undo', 1000);
+          },'validatorSpy call after fourth undo', 1000);
 
           runs(function () {
             expect(getDataAtCell(0, 0)).toBe('A1');
@@ -695,7 +696,7 @@ describe('UndoRedo', function () {
 
         it('should undo multiple row creations', function () {
           var HOT = handsontable({
-            data: Handsontable.helper.createSpreadsheetData(2, 2)
+            data: createSpreadsheetData(2, 2)
           });
 
           expect(countRows()).toEqual(2);
@@ -726,7 +727,7 @@ describe('UndoRedo', function () {
 
         it('should undo multiple row removals', function () {
           var HOT = handsontable({
-            data: Handsontable.helper.createSpreadsheetData(4, 2)
+            data: createSpreadsheetData(4, 2)
           });
 
           expect(countRows()).toEqual(4);
@@ -786,7 +787,7 @@ describe('UndoRedo', function () {
           expect(getDataAtCell(3, 1)).toEqual('B4');
         });
 
-        it('should undo changes only for table where the change actually took place', function () {
+        it('should undo changes only for table where the change actually took place', function(){
           this.$container2 = $('<div id="' + id + '-2"></div>').appendTo('body');
 
           var hot1 = handsontable({
@@ -826,7 +827,7 @@ describe('UndoRedo', function () {
       describe("redo", function () {
         it('should redo single change', function () {
           handsontable({
-            data: Handsontable.helper.createSpreadsheetData(2, 2)
+            data: createSpreadsheetData(2, 2)
           });
           var HOT = getInstance();
 
@@ -842,12 +843,13 @@ describe('UndoRedo', function () {
         });
 
         it('should redo single change in cell with validator', function () {
+
           var validatorSpy = jasmine.createSpy('validatorSpy').andCallFake(function (value, result) {
             result(true);
           });
 
           handsontable({
-            data: Handsontable.helper.createSpreadsheetData(2, 2),
+            data: createSpreadsheetData(2, 2),
             validator: validatorSpy
           });
           var HOT = getInstance();
@@ -888,7 +890,7 @@ describe('UndoRedo', function () {
 
         it('should redo creation of a single row', function () {
           var HOT = handsontable({
-            data: Handsontable.helper.createSpreadsheetData(2, 2)
+            data: createSpreadsheetData(2, 2)
           });
 
           expect(countRows()).toEqual(2);
@@ -908,7 +910,7 @@ describe('UndoRedo', function () {
 
         it('should redo creation of multiple rows', function () {
           var HOT = handsontable({
-            data: Handsontable.helper.createSpreadsheetData(2, 2)
+            data: createSpreadsheetData(2, 2)
           });
 
           expect(countRows()).toEqual(2);
@@ -928,7 +930,7 @@ describe('UndoRedo', function () {
 
         it('should redo removal of single row', function () {
           var HOT = handsontable({
-            data: Handsontable.helper.createSpreadsheetData(3, 2)
+            data: createSpreadsheetData(3, 2)
           });
 
           expect(countRows()).toEqual(3);
@@ -970,7 +972,7 @@ describe('UndoRedo', function () {
 
         it('should redo removal of multiple rows', function () {
           var HOT = handsontable({
-            data: Handsontable.helper.createSpreadsheetData(4, 2)
+            data: createSpreadsheetData(4, 2)
           });
 
           expect(countRows()).toEqual(4);
@@ -1014,7 +1016,7 @@ describe('UndoRedo', function () {
 
         it('should redo creation of a single column', function () {
           var HOT = handsontable({
-            data: Handsontable.helper.createSpreadsheetData(2, 2)
+            data: createSpreadsheetData(2, 2)
           });
 
           expect(countCols()).toEqual(2);
@@ -1034,7 +1036,7 @@ describe('UndoRedo', function () {
 
         it('should redo creation of multiple columns', function () {
           var HOT = handsontable({
-            data: Handsontable.helper.createSpreadsheetData(2, 2)
+            data: createSpreadsheetData(2, 2)
           });
 
           expect(countCols()).toEqual(2);
@@ -1054,7 +1056,7 @@ describe('UndoRedo', function () {
 
         it('should redo removal of single column', function () {
           var HOT = handsontable({
-            data: Handsontable.helper.createSpreadsheetData(2, 2)
+            data: createSpreadsheetData(2, 2)
           });
 
           expect(countCols()).toEqual(2);
@@ -1090,7 +1092,7 @@ describe('UndoRedo', function () {
 
         it('should redo removal of multiple columns', function () {
           var HOT = handsontable({
-            data: Handsontable.helper.createSpreadsheetData(2, 4)
+            data: createSpreadsheetData(2, 4)
           });
 
           expect(countCols()).toEqual(4);
@@ -1142,7 +1144,7 @@ describe('UndoRedo', function () {
 
         it("should redo multiple changes", function () {
           handsontable({
-            data: Handsontable.helper.createSpreadsheetData(2, 2)
+            data: createSpreadsheetData(2, 2)
           });
           var HOT = getInstance();
 
@@ -1205,7 +1207,7 @@ describe('UndoRedo', function () {
           });
 
           handsontable({
-            data: Handsontable.helper.createSpreadsheetData(2, 2),
+            data: createSpreadsheetData(2, 2),
             validator: validatorSpy
           });
           var HOT = getInstance();
@@ -1342,7 +1344,7 @@ describe('UndoRedo', function () {
 
         it('should redo multiple row creations', function () {
           var HOT = handsontable({
-            data: Handsontable.helper.createSpreadsheetData(2, 2)
+            data: createSpreadsheetData(2, 2)
           });
 
           expect(countRows()).toEqual(2);
@@ -1383,7 +1385,7 @@ describe('UndoRedo', function () {
 
         it('should undo multiple row removals', function () {
           var HOT = handsontable({
-            data: Handsontable.helper.createSpreadsheetData(4, 2)
+            data: createSpreadsheetData(4, 2)
           });
 
           expect(countRows()).toEqual(4);
@@ -1445,7 +1447,7 @@ describe('UndoRedo', function () {
           expect(getDataAtCell(0, 1)).toEqual('B1');
         });
 
-        it('should redo changes only for table where the change actually took place', function () {
+        it('should redo changes only for table where the change actually took place', function(){
           this.$container2 = $('<div id="' + id + '-2"></div>').appendTo('body');
 
           var hot1 = handsontable({
@@ -1490,7 +1492,7 @@ describe('UndoRedo', function () {
 
     describe("Object data", function () {
 
-      function createObjectData() {
+      function createObjectData(){
         return [
           {name: 'Timothy', surname: "Dalton"},
           {name: 'Sean', surname: "Connery"},
@@ -1934,6 +1936,7 @@ describe('UndoRedo', function () {
           });
 
 
+
         });
 
         it('should redo creation of a single row', function () {
@@ -2353,256 +2356,104 @@ describe('UndoRedo', function () {
     });
   });
 
-  describe("plugin features", function () {
+    describe("Hooks", function () {
+      describe("beforeUndo", function () {
+        it ("should be fired before undo", function() {
+          var onBeforeUndo = jasmine.createSpy("onBeforeUndo");
 
-    describe("cell alignment", function () {
+          handsontable({
+            data: createSpreadsheetData(2, 2),
+            beforeUndo: onBeforeUndo
+          });
 
-      it("should undo a sequence of aligning cells", function () {
-        var hot = handsontable({
-          data: Handsontable.helper.createSpreadsheetData(9, 9),
-          contextMenu: true,
-          colWidths: [50, 50, 50, 50, 50, 50, 50, 50, 50],
-          rowHeights: [50, 50, 50, 50, 50, 50, 50, 50, 50]
+          setDataAtCell(0, 0, "X1");
+          getInstance().undo();
+
+          expect(onBeforeUndo).toHaveBeenCalled();
         });
 
-        var topSection = new WalkontableCellRange(
-            new WalkontableCellCoords(2, 8),
-            new WalkontableCellCoords(0, 0),
-            new WalkontableCellCoords(2, 8)
-          ),
-          bottomSection = new WalkontableCellRange(
-            new WalkontableCellCoords(8, 8),
-            new WalkontableCellCoords(6, 0),
-            new WalkontableCellCoords(8, 8)
-          ),
-          leftSection = new WalkontableCellRange(
-            new WalkontableCellCoords(8, 2),
-            new WalkontableCellCoords(0, 0),
-            new WalkontableCellCoords(8, 2)
-          ),
-          rightSection = new WalkontableCellRange(
-            new WalkontableCellCoords(8, 8),
-            new WalkontableCellCoords(0, 6),
-            new WalkontableCellCoords(8, 8)
-          );
+        it ("should cancel undo when hook returns false", function () {
+          var onBeforeUndo = function () { return false; };
+          handsontable({
+            data: createSpreadsheetData(2, 2),
+            beforeUndo: onBeforeUndo
+          });
 
-        // top 3 rows center
-        hot.contextMenu.align.call(hot, topSection, 'horizontal', 'htCenter');
+          setDataAtCell(0, 0, "X1");
+          getInstance().undo();
 
-        // middle 3 rows unchanged - left
-
-        // bottom 3 rows right
-        hot.contextMenu.align.call(hot, bottomSection, 'horizontal', 'htRight');
-
-        // left 3 columns - middle
-        hot.contextMenu.align.call(hot, leftSection, 'vertical', 'htMiddle');
-
-        //middle 3 columns unchanged - top
-
-        // right 3 columns - bottom
-        hot.contextMenu.align.call(hot, rightSection, 'vertical', 'htBottom');
-
-        var cellMeta = hot.getCellMeta(0, 0);
-        expect(cellMeta.className.indexOf('htCenter')).toBeGreaterThan(-1);
-        expect(cellMeta.className.indexOf('htMiddle')).toBeGreaterThan(-1);
-
-        cellMeta = hot.getCellMeta(0, 7);
-        expect(cellMeta.className.indexOf('htCenter')).toBeGreaterThan(-1);
-        expect(cellMeta.className.indexOf('htBottom')).toBeGreaterThan(-1);
-
-        cellMeta = hot.getCellMeta(5, 1);
-        expect(cellMeta.className.indexOf('htMiddle')).toBeGreaterThan(-1);
-
-        cellMeta = hot.getCellMeta(5, 7);
-        expect(cellMeta.className.indexOf('htBottom')).toBeGreaterThan(-1);
-
-        cellMeta = hot.getCellMeta(7, 1);
-        expect(cellMeta.className.indexOf('htRight')).toBeGreaterThan(-1);
-        expect(cellMeta.className.indexOf('htMiddle')).toBeGreaterThan(-1);
-
-        cellMeta = hot.getCellMeta(7, 5);
-        expect(cellMeta.className.indexOf('htRight')).toBeGreaterThan(-1);
-
-        cellMeta = hot.getCellMeta(7, 7);
-        expect(cellMeta.className.indexOf('htRight')).toBeGreaterThan(-1);
-        expect(cellMeta.className.indexOf('htBottom')).toBeGreaterThan(-1);
-
-        hot.undo();
-        cellMeta = hot.getCellMeta(0, 7);
-        expect(cellMeta.className.indexOf('htCenter')).toBeGreaterThan(-1);
-        expect(cellMeta.className.indexOf('htBottom')).toEqual(-1);
-
-        cellMeta = hot.getCellMeta(5, 7);
-        expect(cellMeta.className.indexOf('htBottom')).toEqual(-1);
-
-        cellMeta = hot.getCellMeta(7, 7);
-        expect(cellMeta.className.indexOf('htRight')).toBeGreaterThan(-1);
-        expect(cellMeta.className.indexOf('htBottom')).toEqual(-1);
-
-        hot.undo();
-
-        cellMeta = hot.getCellMeta(0, 0);
-        expect(cellMeta.className.indexOf('htCenter')).toBeGreaterThan(-1);
-        expect(cellMeta.className.indexOf('htMiddle')).toEqual(-1);
-
-        cellMeta = hot.getCellMeta(5, 1);
-        expect(cellMeta.className.indexOf('htMiddle')).toEqual(-1);
-
-        cellMeta = hot.getCellMeta(7, 1);
-        expect(cellMeta.className.indexOf('htRight')).toBeGreaterThan(-1);
-        expect(cellMeta.className.indexOf('htMiddle')).toEqual(-1);
-
-        hot.undo();
-
-        cellMeta = hot.getCellMeta(7, 1);
-        expect(cellMeta.className.indexOf('htRight')).toEqual(-1);
-        expect(cellMeta.className.indexOf('htMiddle')).toEqual(-1);
-
-        cellMeta = hot.getCellMeta(7, 5);
-        expect(cellMeta.className.indexOf('htRight')).toEqual(-1);
-
-        cellMeta = hot.getCellMeta(7, 7);
-        expect(cellMeta.className.indexOf('htRight')).toEqual(-1);
-        expect(cellMeta.className.indexOf('htBottom')).toEqual(-1);
-
-        hot.undo();
-
-        // check if all cells are either non-adjusted or adjusted to the left (as default)
-        var finish;
-        for (var i = 0; i < 9; i++) {
-          for (var j = 0; j < 9; j++) {
-            cellMeta = hot.getCellMeta(i, j);
-            finish = cellMeta.className === void 0 || cellMeta.className.trim() === '' || cellMeta.className.trim() === 'htLeft';
-            expect(finish).toBe(true);
-          }
-        }
-
+          expect(getDataAtCell(0, 0)).toEqual("X1");
+        });
       });
 
-      it("should redo a sequence of aligning cells", function () {
-        var hot = handsontable({
-          data: Handsontable.helper.createSpreadsheetData(9, 9),
-          contextMenu: true,
-          colWidths: [50, 50, 50, 50, 50, 50, 50, 50, 50],
-          rowHeights: [50, 50, 50, 50, 50, 50, 50, 50, 50]
+      describe("afterUndo", function() {
+        it ("should be fired after undo", function (){
+          var onAfterUndo = jasmine.createSpy("onAfterUndo");
+
+          handsontable({
+            data: createSpreadsheetData(2, 2),
+            afterUndo: onAfterUndo
+          });
+
+          setDataAtCell(0, 0, "X1");
+          getInstance().undo();
+
+          expect(onAfterUndo).toHaveBeenCalled();
+        });
+      });
+
+      describe("beforeRedo", function () {
+        it ("should be fired before redo", function() {
+          var onBeforeRedo = jasmine.createSpy("onBeforeRedo");
+
+          handsontable({
+            data: createSpreadsheetData(2, 2),
+            beforeRedo: onBeforeRedo
+          });
+
+          setDataAtCell(0, 0, "X1");
+          getInstance().undo();
+          getInstance().redo();
+
+          expect(onBeforeRedo).toHaveBeenCalled();
         });
 
-        var topSection = new WalkontableCellRange(
-            new WalkontableCellCoords(2, 8),
-            new WalkontableCellCoords(0, 0),
-            new WalkontableCellCoords(2, 8)
-          ),
-          bottomSection = new WalkontableCellRange(
-            new WalkontableCellCoords(8, 8),
-            new WalkontableCellCoords(6, 0),
-            new WalkontableCellCoords(8, 8)
-          ),
-          leftSection = new WalkontableCellRange(
-            new WalkontableCellCoords(8, 2),
-            new WalkontableCellCoords(0, 0),
-            new WalkontableCellCoords(8, 2)
-          ),
-          rightSection = new WalkontableCellRange(
-            new WalkontableCellCoords(8, 8),
-            new WalkontableCellCoords(0, 6),
-            new WalkontableCellCoords(8, 8)
-          );
+        it ("should cancel redo when hook returns false", function () {
+          var onBeforeRedo = function () { return false; };
+          handsontable({
+            data: createSpreadsheetData(2, 2),
+            beforeRedo: onBeforeRedo
+          });
 
-        // top 3 rows center
-        hot.contextMenu.align.call(hot, topSection, 'horizontal', 'htCenter');
+          var originalData = getDataAtCell(0, 0);
+          setDataAtCell(0, 0, "X1");
+          getInstance().undo();
+          getInstance().redo();
 
-        // middle 3 rows unchanged - left
-
-        // bottom 3 rows right
-        hot.contextMenu.align.call(hot, bottomSection, 'horizontal', 'htRight');
-
-        // left 3 columns - middle
-        hot.contextMenu.align.call(hot, leftSection, 'vertical', 'htMiddle');
-
-        //middle 3 columns unchanged - top
-
-        // right 3 columns - bottom
-        hot.contextMenu.align.call(hot, rightSection, 'vertical', 'htBottom');
-
-        var cellMeta = hot.getCellMeta(0, 0);
-        expect(cellMeta.className.indexOf('htCenter')).toBeGreaterThan(-1);
-        expect(cellMeta.className.indexOf('htMiddle')).toBeGreaterThan(-1);
-
-        cellMeta = hot.getCellMeta(0, 7);
-        expect(cellMeta.className.indexOf('htCenter')).toBeGreaterThan(-1);
-        expect(cellMeta.className.indexOf('htBottom')).toBeGreaterThan(-1);
-
-        cellMeta = hot.getCellMeta(5, 1);
-        expect(cellMeta.className.indexOf('htMiddle')).toBeGreaterThan(-1);
-
-        cellMeta = hot.getCellMeta(5, 7);
-        expect(cellMeta.className.indexOf('htBottom')).toBeGreaterThan(-1);
-
-        cellMeta = hot.getCellMeta(7, 1);
-        expect(cellMeta.className.indexOf('htRight')).toBeGreaterThan(-1);
-        expect(cellMeta.className.indexOf('htMiddle')).toBeGreaterThan(-1);
-
-        cellMeta = hot.getCellMeta(7, 5);
-        expect(cellMeta.className.indexOf('htRight')).toBeGreaterThan(-1);
-
-        cellMeta = hot.getCellMeta(7, 7);
-        expect(cellMeta.className.indexOf('htRight')).toBeGreaterThan(-1);
-        expect(cellMeta.className.indexOf('htBottom')).toBeGreaterThan(-1);
-
-        hot.undo();
-        hot.undo();
-        hot.undo();
-        hot.undo();
-
-        // check if all cells are either non-adjusted or adjusted to the left (as default)
-        var finish;
-        for (var i = 0; i < 9; i++) {
-          for (var j = 0; j < 9; j++) {
-            cellMeta = hot.getCellMeta(i, j);
-            finish = cellMeta.className === void 0 || cellMeta.className.trim() === '' || cellMeta.className.trim() === 'htLeft';
-            expect(finish).toBe(true);
-          }
-        }
-
-        hot.redo();
-        cellMeta = hot.getCellMeta(0, 0);
-        expect(cellMeta.className.indexOf('htCenter')).toBeGreaterThan(-1);
-        cellMeta = hot.getCellMeta(1, 5);
-        expect(cellMeta.className.indexOf('htCenter')).toBeGreaterThan(-1);
-        cellMeta = hot.getCellMeta(2, 8);
-        expect(cellMeta.className.indexOf('htCenter')).toBeGreaterThan(-1);
-
-        hot.redo();
-        cellMeta = hot.getCellMeta(6, 0);
-        expect(cellMeta.className.indexOf('htRight')).toBeGreaterThan(-1);
-        cellMeta = hot.getCellMeta(7, 5);
-        expect(cellMeta.className.indexOf('htRight')).toBeGreaterThan(-1);
-        cellMeta = hot.getCellMeta(8, 8);
-        expect(cellMeta.className.indexOf('htRight')).toBeGreaterThan(-1);
-
-        hot.redo();
-        cellMeta = hot.getCellMeta(0, 0);
-        expect(cellMeta.className.indexOf('htMiddle')).toBeGreaterThan(-1);
-        expect(cellMeta.className.indexOf('htCenter')).toBeGreaterThan(-1);
-        cellMeta = hot.getCellMeta(5, 1);
-        expect(cellMeta.className.indexOf('htMiddle')).toBeGreaterThan(-1);
-        cellMeta = hot.getCellMeta(8, 2);
-        expect(cellMeta.className.indexOf('htMiddle')).toBeGreaterThan(-1);
-        expect(cellMeta.className.indexOf('htRight')).toBeGreaterThan(-1);
-
-        hot.redo();
-        cellMeta = hot.getCellMeta(0, 6);
-        expect(cellMeta.className.indexOf('htBottom')).toBeGreaterThan(-1);
-        expect(cellMeta.className.indexOf('htCenter')).toBeGreaterThan(-1);
-        cellMeta = hot.getCellMeta(5, 7);
-        expect(cellMeta.className.indexOf('htBottom')).toBeGreaterThan(-1);
-        cellMeta = hot.getCellMeta(8, 8);
-        expect(cellMeta.className.indexOf('htBottom')).toBeGreaterThan(-1);
-        expect(cellMeta.className.indexOf('htRight')).toBeGreaterThan(-1);
+          expect(getDataAtCell(0, 0)).toEqual(originalData);
+        });
       });
 
+      describe("afterRedo", function() {
+        it ("should be fired after redo", function (){
+          var onAfterRedo = jasmine.createSpy("onAfterRedo");
+
+          handsontable({
+            data: createSpreadsheetData(2, 2),
+            afterRedo: onAfterRedo
+          });
+
+          setDataAtCell(0, 0, "X1");
+          getInstance().undo();
+          getInstance().redo();
+
+          expect(onAfterRedo).toHaveBeenCalled();
+        });
+      });
     });
+  });
 
+  describe("plugin features", function () {
     it("should exposed new methods when plugin is enabled", function () {
       var hot = handsontable({
         undo: false
@@ -2652,22 +2503,21 @@ describe('UndoRedo', function () {
     describe("Keyboard shortcuts", function () {
       it('should undo single change after hitting CTRL+Z', function () {
         handsontable({
-          data: Handsontable.helper.createSpreadsheetData(2, 2)
+          data: createSpreadsheetData(2, 2)
         });
         var HOT = getInstance();
 
         selectCell(0, 0);
         setDataAtCell(0, 0, 'new value');
 
-//        var keyboardEvent = $.Event('keydown', {ctrlKey: true, keyCode: 'Z'.charCodeAt(0)});
-//        this.$container.trigger(keyboardEvent);
-        this.$container.simulate('keydown', {ctrlKey: true, keyCode: 'Z'.charCodeAt(0)});
+        var keyboardEvent = $.Event('keydown', {ctrlKey: true, keyCode: 'Z'.charCodeAt(0)});
+        this.$container.trigger(keyboardEvent);
         expect(getDataAtCell(0, 0)).toBe('A1');
       });
 
       it('should redo single change after hitting CTRL+Y', function () {
         handsontable({
-          data: Handsontable.helper.createSpreadsheetData(2, 2)
+          data: createSpreadsheetData(2, 2)
         });
         var HOT = getInstance();
 
@@ -2679,16 +2529,15 @@ describe('UndoRedo', function () {
         HOT.undo();
         expect(getDataAtCell(0, 0)).toBe('A1');
 
-//        var keyboardEvent = $.Event('keydown', {ctrlKey: true, keyCode: 'Y'.charCodeAt(0)});
-//        this.$container.trigger(keyboardEvent);
-        this.$container.simulate('keydown', {ctrlKey: true, keyCode: 'Y'.charCodeAt(0)});
+        var keyboardEvent = $.Event('keydown', {ctrlKey: true, keyCode: 'Y'.charCodeAt(0)});
+        this.$container.trigger(keyboardEvent);
 
         expect(getDataAtCell(0, 0)).toBe('new value');
       });
 
       it('should redo single change after hitting CTRL+SHIFT+Z', function () {
         handsontable({
-          data: Handsontable.helper.createSpreadsheetData(2, 2)
+          data: createSpreadsheetData(2, 2)
         });
         var HOT = getInstance();
 
@@ -2700,9 +2549,8 @@ describe('UndoRedo', function () {
         HOT.undo();
         expect(getDataAtCell(0, 0)).toBe('A1');
 
-//        var keyboardEvent = $.Event('keydown', {ctrlKey: true, shiftKey: true, keyCode: 'Z'.charCodeAt(0)});
-//        this.$container.trigger(keyboardEvent);
-        this.$container.simulate('keydown', {ctrlKey: true, shiftKey: true, keyCode: 'Z'.charCodeAt(0)});
+        var keyboardEvent = $.Event('keydown', {ctrlKey: true, shiftKey: true, keyCode: 'Z'.charCodeAt(0)});
+        this.$container.trigger(keyboardEvent);
 
         expect(getDataAtCell(0, 0)).toBe('new value');
       });
