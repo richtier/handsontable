@@ -106,7 +106,7 @@
   Handsontable.UndoRedo.prototype.redo = function () {
     if (this.isRedoAvailable()) {
       var action = this.undoneActions.pop(),
-          result = Handsontable.hooks.run(this.instance, "beforeRedo", action.dup());
+          result = Handsontable.hooks.run(this.instance, action.dup(), "beforeRedo");
 
       if (result === false) {
         return;
@@ -119,7 +119,7 @@
         that.doneActions.push(action);
       });
 
-      Handsontable.hooks.run(this.instance, "afterChange", 'redo', action.dup());
+      Handsontable.hooks.run(this.instance, "afterChange", action.dup().data, 'redo');
     }
   };
 
