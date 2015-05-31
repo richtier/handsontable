@@ -83,7 +83,7 @@
   Handsontable.UndoRedo.prototype.undo = function () {
     if (this.isUndoAvailable()) {
       var action = this.doneActions.pop(),
-          result = Handsontable.hooks.execute(this.instance, "beforeUndo", action.dup());
+          result = Handsontable.hooks.run(this.instance, "beforeUndo", action.dup());
 
       if (result === false) {
         return;
@@ -106,7 +106,7 @@
   Handsontable.UndoRedo.prototype.redo = function () {
     if (this.isRedoAvailable()) {
       var action = this.undoneActions.pop(),
-          result = Handsontable.hooks.execute(this.instance, "beforeRedo", action.dup());
+          result = Handsontable.hooks.run(this.instance, "beforeRedo", action.dup());
 
       if (result === false) {
         return;

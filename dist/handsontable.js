@@ -6,7 +6,7 @@
  * Licensed under the MIT license.
  * http://handsontable.com/
  *
- * Date: Sun May 31 2015 21:55:57 GMT+0100 (BST)
+ * Date: Sun May 31 2015 22:27:23 GMT+0100 (BST)
  */
 /*jslint white: true, browser: true, plusplus: true, indent: 4, maxerr: 50 */
 
@@ -14111,7 +14111,7 @@ function Storage(prefix) {
   Handsontable.UndoRedo.prototype.undo = function () {
     if (this.isUndoAvailable()) {
       var action = this.doneActions.pop(),
-          result = Handsontable.hooks.execute(this.instance, "beforeUndo", action.dup());
+          result = Handsontable.hooks.run(this.instance, "beforeUndo", action.dup());
 
       if (result === false) {
         return;
@@ -14134,7 +14134,7 @@ function Storage(prefix) {
   Handsontable.UndoRedo.prototype.redo = function () {
     if (this.isRedoAvailable()) {
       var action = this.undoneActions.pop(),
-          result = Handsontable.hooks.execute(this.instance, "beforeRedo", action.dup());
+          result = Handsontable.hooks.run(this.instance, "beforeRedo", action.dup());
 
       if (result === false) {
         return;
