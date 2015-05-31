@@ -157,7 +157,7 @@
   };
   Handsontable.UndoRedo.Action.prototype.dup = function () {
     return JSON.parse(JSON.stringify(this));
-  }
+  };
 
   Handsontable.UndoRedo.ChangeAction = function (changes) {
     this.changes = changes;
