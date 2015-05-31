@@ -6,7 +6,7 @@
  * Licensed under the MIT license.
  * http://handsontable.com/
  *
- * Date: Sun May 31 2015 22:27:23 GMT+0100 (BST)
+ * Date: Sun May 31 2015 23:09:00 GMT+0100 (BST)
  */
 /*jslint white: true, browser: true, plusplus: true, indent: 4, maxerr: 50 */
 
@@ -14124,7 +14124,7 @@ function Storage(prefix) {
         that.undoneActions.push(action);
       });
 
-      Handsontable.hooks.run(this.instance, "afterUndo", action.dup());
+      Handsontable.hooks.run(this.instance, "afterChange", 'undo', action.dup());
     }
   };
 
@@ -14147,7 +14147,7 @@ function Storage(prefix) {
         that.doneActions.push(action);
       });
 
-      Handsontable.hooks.run(this.instance, "afterRedo", action.dup());
+      Handsontable.hooks.run(this.instance, "afterChange", 'redo', action.dup());
     }
   };
 
