@@ -2557,5 +2557,3 @@ describe('UndoRedo', function () {
 
     });
   });
-
-});

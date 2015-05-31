@@ -6,7 +6,7 @@
  * Licensed under the MIT license.
  * http://handsontable.com/
  *
- * Date: Sun May 31 2015 21:52:27 GMT+0100 (BST)
+ * Date: Sun May 31 2015 21:55:57 GMT+0100 (BST)
  */
 /*jslint white: true, browser: true, plusplus: true, indent: 4, maxerr: 50 */
 
