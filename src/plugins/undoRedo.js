@@ -96,7 +96,7 @@
         that.undoneActions.push(action);
       });
 
-      Handsontable.hooks.run(this.instance, "afterChange", action.dup().data, 'undo');
+      Handsontable.hooks.run(this.instance, "afterChange", action.dup().data, 'undoremove');
     }
   };
 
@@ -119,7 +119,7 @@
         that.doneActions.push(action);
       });
 
-      Handsontable.hooks.run(this.instance, "afterChange", action.dup().data, 'redo');
+      Handsontable.hooks.run(this.instance, "afterChange", action.dup().data, 'redoremove');
     }
   };
 
