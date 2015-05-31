@@ -96,7 +96,7 @@
         that.undoneActions.push(action);
       });
 
-      Handsontable.hooks.run(this.instance, "afterChange", 'undo', action.dup());
+      Handsontable.hooks.run(this.instance, "afterChange", action.dup().data, 'undo');
     }
   };
 
