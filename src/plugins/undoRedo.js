@@ -95,8 +95,9 @@
         that.ignoreNewActions = false;
         that.undoneActions.push(action);
       });
-
-      Handsontable.hooks.run(this.instance, "afterChange", action.dup().data, 'undoremove');
+      if (action.type == 'remove_row') {
+        Handsontable.hooks.run(this.instance, "afterChange", action.dup().data, 'undoremove');
+      }
     }
   };
 
@@ -118,8 +119,9 @@
         that.ignoreNewActions = false;
         that.doneActions.push(action);
       });
-
-      Handsontable.hooks.run(this.instance, "afterChange", action.dup().data, 'redoremove');
+      if (action.type == 'remove_row') {
+        Handsontable.hooks.run(this.instance, "afterChange", action.dup().data, 'redoremove');
+      }
     }
   };
 
