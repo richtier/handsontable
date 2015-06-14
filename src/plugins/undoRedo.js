@@ -90,14 +90,14 @@
       }
 
       this.ignoreNewActions = true;
+      if (action.type == 'remove_row') {
+        Handsontable.hooks.run(this.instance, "afterChange", action.dup().data, 'undoremove');
+      }
       var that = this;
       action.undo(this.instance, function () {
         that.ignoreNewActions = false;
         that.undoneActions.push(action);
       });
-      if (action.type == 'remove_row') {
-        Handsontable.hooks.run(this.instance, "afterChange", action.dup().data, 'undoremove');
-      }
     }
   };
 
@@ -114,14 +114,14 @@
       }
 
       this.ignoreNewActions = true;
+      if (action.type == 'remove_row') {
+        Handsontable.hooks.run(this.instance, "afterChange", action.dup().data, 'redoremove');
+      }
       var that = this;
       action.redo(this.instance, function () {
         that.ignoreNewActions = false;
         that.doneActions.push(action);
       });
-      if (action.type == 'remove_row') {
-        Handsontable.hooks.run(this.instance, "afterChange", action.dup().data, 'redoremove');
-      }
     }
   };
 
